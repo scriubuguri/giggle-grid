@@ -1,9 +1,8 @@
 #!/usr/bin/env python
-#this is a grid of giggles aka tik-tak-toe game
+#this is a tik-tak-toe game
 
-#making the board for the game and the players 
+#making the board for the game 
 your_board = [" "] * 9
-
 
 def print_board():
     print(your_board[0] + " | " + your_board[1] + " | " + your_board[2])
@@ -12,15 +11,19 @@ def print_board():
     print("---------")
     print(your_board[6] + " | " + your_board[7] + " | " + your_board[8])
 
+def choose_marker():
+    marker = input("Player 1, choose your marker ('X' or 'O'): ").upper()
+    while marker not in ['X', 'O']:
+        print("Invalid choice. Please choose 'X' or 'O'.")
+        marker = input("Player 1, choose your marker ('X' or 'O'): ").upper()
+    return marker
+
+player1_marker = choose_marker()
+player2_marker = 'X' if player1_marker == 'O' else 'O'
 
 #defining the fill_board function
-def fill_board(marker):
-    if marker == "X":
-        player = 1
-    elif marker == "O":
-        player = 2
+def fill_board(marker, player):
     print("Your turn player " + str(player))
-
     choice = int(input("Choose a number between 0 and 8 for your position: "))
     if your_board[choice] == " ":
         your_board[choice] = marker
@@ -59,14 +62,13 @@ def check_winner():
 
 
 print_board()
+player_turn = 1
 while True:
-    fill_board("X")
+    fill_board(player1_marker if player_turn == 1 else player2_marker, player_turn)
     print_board()
     if check_winner():
+        print("Congratulations! Player " + str(player_turn) + " wins!")
         break
-    fill_board("O")
-    print_board()
-    if check_winner():
-        break
-   
+
+    player_turn = 3 - player_turn
 
