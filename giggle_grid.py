@@ -1,6 +1,12 @@
 #!/usr/bin/env python
 #this is a tik-tak-toe game
 
+import os
+
+
+def clear_console():
+    os.system('cls' if os.name == 'nt' else 'clear')
+
 #option for player to play again 
 def play_again():
     return input("Do you want to play again? (yes/no): ").lower().startswith('y')
@@ -70,6 +76,7 @@ while True:
     player_turn = 1
     while True:
         fill_board(player1_marker if player_turn == 1 else player2_marker, player_turn)
+        clear_console()
         print_board()
         if check_winner():
             print("Congratulations! Player " + str(player_turn) + " wins!")
