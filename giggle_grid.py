@@ -45,31 +45,23 @@ while True:
     #defining the check_winner function
     def check_winner():
         if your_board[0] == your_board[1] == your_board[2] != " ":
-            print(your_board[0] + " wins!")
             return True
         elif your_board[3] == your_board[4] == your_board[5] != " ":
-            print(your_board[3] + " wins!")
             return True
         elif your_board[6] == your_board[7] == your_board[8] != " ":
-            print(your_board[6] + " wins!")
             return True
         elif your_board[0] == your_board[3] == your_board[6] != " ":
-            print(your_board[0] + " wins!")
             return True
         elif your_board[1] == your_board[4] == your_board[7] != " ":
-            print(your_board[1] + " wins!")
             return True
         elif your_board[2] == your_board[5] == your_board[8] != " ":
-            print(your_board[2] + " wins!")
             return True
         elif your_board[0] == your_board[4] == your_board[8] != " ":
-            print(your_board[0] + " wins!")
             return True
         elif your_board[2] == your_board[4] == your_board[6] != " ":
-            print(your_board[2] + " wins!")
             return True
         else:
-            print("Nobody wins!") 
+            return False     
 
 
     print_board()
@@ -80,6 +72,10 @@ while True:
         print_board()
         if check_winner():
             print("Congratulations! Player " + str(player_turn) + " wins!")
+            break
+
+        if " " not in your_board:
+            print("Nobody won!")
             break
 
         player_turn = 3 - player_turn

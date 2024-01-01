@@ -42,7 +42,7 @@ and play the game with your friends!
 4. The game continues until a player wins or the board is filled.
 5. After each game, players are prompted to play again. If they choose to continue, a new game starts with the players swapping markers.
 
-![](tictactoe.png)
+![](tictactoee.png)
 
 ## Author
 
